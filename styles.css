@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* полупрозрачный фон */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.header-gif {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#canvas {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-btn {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 30px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 25px; /* Овальная форма */
+    background-color: #ff8c00; /* Оранжевый фон */
+    border: 2px solid white; /* Белая обводка */
+    color: white; /* Белый текст */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #e07b00; /* Тёмно-оранжевый фон при наведении */
+    transform: scale(1.05); /* Немного увеличиваем кнопку при наведении */
+}
+
+button:active {
+    transform: scale(0.98); /* При нажатии кнопка слегка уменьшается */
+}
