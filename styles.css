@@ -6,33 +6,38 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Гарантирует, что фон занимает всю высоту экрана */
+    width: 100vw;
     flex-direction: column;
+    overflow: hidden; /* Исключает скролл и фиксирует фон */
 }
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); /* полупрозрачный фон */
+    background: rgba(255, 255, 255, 0.85); /* Полупрозрачный контейнер */
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 450px;
 }
 
 .header {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .header-gif {
-    max-width: 100px;
+    max-width: 80px;
     margin-bottom: 10px;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 22px;
     color: #333;
 }
 
@@ -40,11 +45,16 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #canvas {
     border: 1px solid #ccc;
-    margin-bottom: 20px;
+    background-color: white;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
     cursor: pointer;
 }
 
@@ -52,30 +62,35 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .upload-btn {
-    margin-bottom: 15px;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
 }
 
 button {
     font-size: 16px;
-    padding: 10px 30px;
-    margin: 10px;
+    padding: 12px 24px;
+    margin: 8px;
     cursor: pointer;
-    border-radius: 25px; /* Овальная форма */
-    background-color: #ff8c00; /* Оранжевый фон */
-    border: 2px solid white; /* Белая обводка */
-    color: white; /* Белый текст */
+    border-radius: 30px;
+    background-color: #ff8c00;
+    border: none;
+    color: white;
+    font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 220px;
 }
 
 button:hover {
-    background-color: #e07b00; /* Тёмно-оранжевый фон при наведении */
-    transform: scale(1.05); /* Немного увеличиваем кнопку при наведении */
+    background-color: #e07b00;
+    transform: scale(1.05);
 }
 
 button:active {
-    transform: scale(0.98); /* При нажатии кнопка слегка уменьшается */
+    transform: scale(0.98);
 }

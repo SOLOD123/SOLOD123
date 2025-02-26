@@ -2,134 +2,100 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>PFP Генератор</title>
     <style>
-        /* Основной фон */
-        body {
+        html, body {
             font-family: Arial, sans-serif;
-            background-image: url('images/background.jpg'); /* Путь к фону */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center; /* Центрируем контент по вертикали */
+            align-items: center;
             flex-direction: column;
-            height: 100vh; /* Высота экрана */
+            background: #f5f5f5;
             text-align: center;
+            overflow: hidden;
         }
 
         /* Полупрозрачная рамка для генератора */
         .generator-container {
-            background: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 95%;
+            max-width: 500px;
             text-align: center;
-            position: relative;
-            z-index: 10; /* Элементы будут поверх фона */
-            width: 100%;
-            max-width: 600px; /* Ограничение ширины */
-            margin-top: 120px; /* Отступ сверху для канваса */
         }
 
-        /* Стиль для картинки вместо заголовка */
+        /* Стиль для логотипа */
         .logo img {
-            width: 200px; /* Размер картинки, измените по необходимости */
-            margin-bottom: 20px;
+            width: 150px;
+            margin-bottom: 15px;
         }
 
         /* Стиль для канваса */
         #canvas {
             border: 2px solid #000;
-            margin-top: 20px;
             background-color: #fff;
             width: 100%;
-            height: 500px; /* Фиксированная высота канваса */
-            display: block;
-            margin-left: auto;
-            margin-right: auto; /* Центрируем канвас */
+            height: 400px;
         }
 
-        /* Контейнер для кнопок под канвасом */
+        /* Контейнер для кнопок */
         .button-container {
-            margin-top: 20px; /* Отступ сверху */
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         /* Стиль для кнопок */
         button, a {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #8352a4; /* Цвет кнопки Генерировать */
+            padding: 12px;
+            background-color: #8352a4;
             color: white;
             border: none;
             font-size: 16px;
-            border-radius: 25px; /* Овальная форма */
-            margin: 10px; /* Отступы между кнопками */
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
 
         button:hover, a:hover {
-            background-color: #6f3e7d; /* Темнее на hover */
-            transform: scale(1.05);
+            background-color: #6f3e7d;
         }
 
-        button:active, a:active {
-            transform: scale(0.98);
-        }
-
-        /* Позиционирование и стили для GIF */
+        /* GIF-загрузка */
         #gif-container {
             position: absolute;
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 20; /* GIF будет выше всех элементов */
         }
 
         #gif-container img {
-            width: 100px; /* Размер GIF */
-        }
-
-        /* Стиль для загрузки файла */
-        #upload {
-            margin-top: 20px;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        /* Позиционирование канваса в центре экрана */
-        #canvas-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-top: 60px; /* Отступ сверху для канваса */
+            width: 80px;
         }
     </style>
 </head>
 <body>
-    <!-- Контейнер для GIF -->
+    <!-- Контейнер GIF -->
     <div id="gif-container">
         <img src="images/loader.gif" alt="Загрузка...">
     </div>
-    
-    <!-- Контейнер с элементами генератора в полупрозрачной рамке -->
+
+    <!-- Основной контейнер -->
     <div class="generator-container">
-        <!-- Подставляем PNG картинку вместо заголовка -->
         <div class="logo">
             <img src="images/logo.png" alt="Логотип">
         </div>
-        
-        <!-- Контейнер с канвасом -->
-        <div id="canvas-container">
-            <canvas id="canvas"></canvas>
-        </div>
-        
-        <!-- Контейнер с кнопками под канвасом -->
+
+        <canvas id="canvas"></canvas>
+
         <div class="button-container">
             <input type="file" id="upload" accept="image/*">
             <button id="generate">Генерировать</button>
@@ -137,6 +103,12 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.expand(); // Разворачивает WebApp на весь экран
+            }
+        });
+    </script>
 </body>
 </html>
